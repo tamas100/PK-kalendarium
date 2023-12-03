@@ -2,7 +2,7 @@ const data = [
   {
     day: 1,
     link: "https://www.youtube.com/embed/EDc38uE0bCw?si=u9RnCUoKXxpDdtNZ",
-    isFlipped: false,
+    isFlipped: true,
   },
 
   {

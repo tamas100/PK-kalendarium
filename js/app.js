@@ -13,27 +13,28 @@ function templateCard(day) {  // TODO
 
     front.innerHTML = `<h2>December ${day.day}.</h2>`;
 
-    // if (day === 24) {
-    //     back.innerHTML = `<p>Ma van szenteste</p>`;
-    // }
-    // else {
-    //     back.innerHTML = `<p>Már csak ${24 - day.day} nap van Karácsonyig</p>`
-    // }
+    let message;
+
+    if (day.day === 24) {
+        message = "Ma van szenteste";
+    } else {
+        message = `Már csak ${24 - day.day} nap van Karácsonyig`;
+    }
 
     back.innerHTML = `
-        <div class = "card_header">
-            <iframe
-                title = "Youtube video player"
-                src = "${day.link}"
-                frameborder = "0"
-                allowfullscreen
-            >
-            </iframe>
-        </div>
-        <div class = "card_body">
-            <p>Már csak ${24 - day.day} nap van Karácsonyig</p>
-        </div>
-    `
+            <div class = "card_header" >
+                <iframe
+                    title="Youtube video player"
+                    src="${day.link}"
+                    frameborder="0"
+                    allowfullscreen
+                >
+                </iframe>
+            </div>
+            <div class="card_body">
+                <p>${message}</p>
+            </div>
+        `
 
     card.appendChild(front);
     card.appendChild(back);
