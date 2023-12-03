@@ -1,4 +1,4 @@
-import days from "../data/data.js";
+import data from "../data/data.js"; //TODO
 
 const $container = document.querySelector(".js-container");
 
@@ -11,14 +11,29 @@ function templateCard(day) {  // TODO
     front.classList = "card_content card_front";
     back.classList = "card_content card_back is-flipped";
 
-    front.innerHTML = `<h2>December ${day}.</h2>`;
+    front.innerHTML = `<h2>December ${day.day}.</h2>`;
 
-    if (day === 24) {
-        back.innerHTML = `<p>Ma van szenteste</p>`;
-    }
-    else {
-        back.innerHTML = `<p>Már csak ${24 - day} nap van Karácsonyig</p>`
-    }
+    // if (day === 24) {
+    //     back.innerHTML = `<p>Ma van szenteste</p>`;
+    // }
+    // else {
+    //     back.innerHTML = `<p>Már csak ${24 - day.day} nap van Karácsonyig</p>`
+    // }
+
+    back.innerHTML = `
+        <div class = "card_header">
+            <iframe
+                title = "Youtube video player"
+                src = "${day.link}"
+                frameborder = "0"
+                allowfullscreen
+            >
+            </iframe>
+        </div>
+        <div class = "card_body">
+            <p>Már csak ${24 - day.day} nap van Karácsonyig</p>
+        </div>
+    `
 
     card.appendChild(front);
     card.appendChild(back);
@@ -33,8 +48,8 @@ function templateCard(day) {  // TODO
 
 const render = () => {
     let html = "";
-    for (let i = 1; i <= 24; i++) {
-        const newCard = templateCard(i);
+    for (let day of data) {
+        const newCard = templateCard(day);
         $container.appendChild(newCard);
     }
 };

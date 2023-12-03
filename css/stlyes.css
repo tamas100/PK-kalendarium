@@ -77,9 +77,28 @@ main {
   background-color: #a3b763;
   color: #000;
   font-size: 1.2rem;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.is-flipped {
+.card_header {
+  height: 50%;
+  width: 100;
+  background-color: #fff;
+}
+
+.card_header iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.card_body {
+  height: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.card .is-flipped {
   transform: rotateY(180deg);
   visibility: hidden;
 }
