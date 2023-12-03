@@ -9,13 +9,25 @@ function templateCard(day) {  // TODO
 
     card.classList = "card";
     front.classList = "card_content card_front";
-    back.classList = "card_content card_back";
+    back.classList = "card_content card_back is-flipped";
 
-    front.innerHTML = `<h2>December ${day}.</h2>`
-    back.innerHTML = `<p>Már csak ${24 - day} nap van Karácsonyig</p>`
+    front.innerHTML = `<h2>December ${day}.</h2>`;
+
+    if (day === 24) {
+        back.innerHTML = `<p>Ma van szenteste</p>`;
+    }
+    else {
+        back.innerHTML = `<p>Már csak ${24 - day} nap van Karácsonyig</p>`
+    }
 
     card.appendChild(front);
     card.appendChild(back);
+
+    card.addEventListener("click", () => {
+        front.classList.toggle("is-flipped");
+        back.classList.toggle("is-flipped");
+    });
+
     return card;
 }
 
