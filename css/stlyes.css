@@ -100,7 +100,30 @@ main {
 
 .card .is-flipped {
   transform: rotateY(180deg);
-  visibility: hidden;
+  /* visibility: hidden; */
+}
+
+.btn {
+  /* TODO */
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  max-width: 550px;
+  padding: 1rem;
+  font-size: 2rem;
+  margin: 5rem auto;
+  background: #a3b763;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn:hover {
+  background: #bad563;
+}
+
+.btn:active {
+  transform: scale(0.95);
 }
 
 footer {
